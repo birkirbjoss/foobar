@@ -31,3 +31,30 @@ height: auto;
     display: none;
 }
 
+#modal {
+    color: white;
+    text-align: center;
+    position: fixed;
+ 
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .7);
+}
+
+.modal-content {
+    background-color: #1c1c1c;
+    
+    width: 80vw;
+    height: 80vw;
+    margin: auto;
+}
+
+.modal-close {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.image{
+    width: 20%;
+}
+
