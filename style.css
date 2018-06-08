@@ -2,6 +2,7 @@ body{
     display: grid;
     grid-template-columns: repeat(4,1fr);
     font-family: 'Work Sans', sans-serif;
+    background-color: #5D4037;
 }
 
 footer{
@@ -21,11 +22,9 @@ div{
 }
 
 svg{
-    grid-column: 1/-1;
-   width: 100%;
-    height: 100%;
+   width: 140%;
+height: auto;
 
 }
-.st10{
-    background-color: red;
-}
+
+
