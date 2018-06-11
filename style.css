@@ -1,10 +1,19 @@
 *{
-    background-color: black;
+    background-color:#42652E;
+    
+   
 }
+
+body{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    font-family: century gothic;
+}
+
 #foo{
-width: 70%;
-height:auto;
-margin-left: 13em;
+grid-column: 1/-1;
+width: 60%;
+margin:auto;
 
 }
 
@@ -17,20 +26,20 @@ display: none;
 }
 
 #modal {
-color: white;
-text-align: center;
-position: fixed;
 
+color: white;
+font-size: 13px;
+text-align:center;
+position: fixed;
 width: 100vw;
 height: 100vh;
-background-color: rgba(0, 0, 0, .7);
+background-color:rgba(66, 101, 46, .7);
 }
 
 .modal-content {
-background-color: #1c1c1c;
-
-width: 80vw;
-height: 80vw;
+background-color: #42652E;
+width: 50vw;
+height: 50vw;
 margin: auto;
 }
 
@@ -39,10 +48,21 @@ text-decoration: underline;
 cursor: pointer;
 }
 
-#queue{
-    color: white;
-    font-size: 20px;
+.image{
+    width:20%;
 }
+
+
+#queue{
+    fill: white;
+}
+
+.st5{
+    fill: white;
+
+}
+
+
 
 
 
