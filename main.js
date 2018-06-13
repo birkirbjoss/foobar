@@ -118,8 +118,8 @@ function showModalContent() {
 
             //showModalContent(theKeg);
             modal.classList.remove("hide")
-            modal.querySelector(".name").textContent ="Name: " + thisBeer.name;
-            modal.querySelector(".category").textContent ="Category: " + thisBeer.category;
+            modal.querySelector(".name").textContent = "Name: " + thisBeer.name;
+            modal.querySelector(".category").textContent = "Category: " + thisBeer.category;
             modal.querySelector(".label").src = thisBeer.label;
             modal.querySelector(".appearance").textContent = "Appearance:  " + thisBeer.description.appearance;
             modal.querySelector(".aroma").textContent = "Aroma: " + thisBeer.description.aroma;
@@ -184,29 +184,26 @@ let storage = myObject.storage;
 function showStorage() {
 
     storage.forEach(function (item, index, array) {
-        console.log(index,item);
+        console.log(index, item);
         let thisStore = myObject.storage.find(function (element) {
             return element.amount === myObject.storage[index].amount;
-            
+
 
         });
-        document.querySelector(".storage").textContent ="We have " + myObject.storage[0].amount + " kegs left " + "of " +  storage[0].name;
-        document.querySelector(".storage1").textContent ="We have " + myObject.storage[1].amount + " kegs left " + "of " +  storage[1].name;
-        document.querySelector(".storage2").textContent ="We have " + myObject.storage[2].amount + " kegs left " + "of " +  storage[2].name;
-        document.querySelector(".storage3").textContent ="We have " + myObject.storage[3].amount + " kegs left " + "of " +  storage[3].name;
-        document.querySelector(".storage4").textContent ="We have " + myObject.storage[4].amount + " kegs left " + "of " +  storage[4].name;
-        document.querySelector(".storage5").textContent ="We have " + myObject.storage[5].amount + " kegs left " + "of " +  storage[5].name;
-        document.querySelector(".storage6").textContent ="We have " + myObject.storage[6].amount + " kegs left " + "of " +  storage[6].name;
-        document.querySelector(".storage7").textContent ="We have " + myObject.storage[7].amount + " kegs left " + "of " +  storage[7].name;
-        document.querySelector(".storage8").textContent ="We have " + myObject.storage[8].amount + " kegs left " + "of " +  storage[8].name;
-        document.querySelector(".storage9").textContent ="We have " + myObject.storage[9].amount + " kegs left " + "of " +  storage[9].name;
-        
+        document.querySelector(".storage").textContent = "We have " + myObject.storage[0].amount + " kegs left " + "of " + storage[0].name;
+        document.querySelector(".storage1").textContent = "We have " + myObject.storage[1].amount + " kegs left " + "of " + storage[1].name;
+        document.querySelector(".storage2").textContent = "We have " + myObject.storage[2].amount + " kegs left " + "of " + storage[2].name;
+        document.querySelector(".storage3").textContent = "We have " + myObject.storage[3].amount + " kegs left " + "of " + storage[3].name;
+        document.querySelector(".storage4").textContent = "We have " + myObject.storage[4].amount + " kegs left " + "of " + storage[4].name;
+        document.querySelector(".storage5").textContent = "We have " + myObject.storage[5].amount + " kegs left " + "of " + storage[5].name;
+        document.querySelector(".storage6").textContent = "We have " + myObject.storage[6].amount + " kegs left " + "of " + storage[6].name;
+        document.querySelector(".storage7").textContent = "We have " + myObject.storage[7].amount + " kegs left " + "of " + storage[7].name;
+        document.querySelector(".storage8").textContent = "We have " + myObject.storage[8].amount + " kegs left " + "of " + storage[8].name;
+        document.querySelector(".storage9").textContent = "We have " + myObject.storage[9].amount + " kegs left " + "of " + storage[9].name;
 
-        
+
+
     })
-
-
-
 
 }
 
@@ -224,83 +221,82 @@ let inuse = document.querySelectorAll(".st62");
 
 console.log(kegok);
 
-function showLevels(tapObj){
+function showLevels(tapObj) {
     // console.log(tapObj);
-    let alltaps = tapObj.taps; 
-    for (let i=0;i<alltaps.length;i++)  {
+    let alltaps = tapObj.taps;
+    for (let i = 0; i < alltaps.length; i++) {
 
-        let tap=alltaps[i];
-    // alltaps.forEach((tap, i) =>{
-    console.log(tap);
-//let alltaps = document.querySelector("[data-tabid]" + i);
-let level=mylevel[i];
-let kegokPath=kegok[i];
-let kegokPath2=kegok2[i];
-let replacePath=replace[i];
-let replacePath2=replace2[i];
+        let tap = alltaps[i];
+        // alltaps.forEach((tap, i) =>{
+        console.log(tap);
+        //let alltaps = document.querySelector("[data-tabid]" + i);
+        let level = mylevel[i];
+        let kegokPath = kegok[i];
+        let kegokPath2 = kegok2[i];
+        let replacePath = replace[i];
+        let replacePath2 = replace2[i];
 
-if (tap.level == 2500 ){
-//    console.log(tap.level);
-    // console.log(mylevel);
-    
-    // mylevel.forEach((level)=>{
-        level.style.height= "0";
-        level.style.y = "866";
-       
-    // });
+        if (tap.level == 2500) {
+            //    console.log(tap.level);
+            // console.log(mylevel);
 
-    // kegok.forEach((kegokPath)=>{
-        kegokPath.style.fill = "green";
-        kegokPath2.style.fill = "green";
-    // });
-
-    
-
-};
-
-if (tap.level <= 2450 ){
-    //    console.log(tap.level);
-        // console.log(mylevel);
-        // mylevel.forEach((level)=>{
-            level.style.height= "90";
+            // mylevel.forEach((level)=>{
+            level.style.height = "0";
             level.style.y = "866";
-           
-        // });
-    
-        // kegok.forEach((kegokPath)=>{
+
+            // });
+
+            // kegok.forEach((kegokPath)=>{
+            kegokPath.style.fill = "green";
+            kegokPath2.style.fill = "green";
+            // });
+
+
+
+        };
+
+        if (tap.level <= 2450) {
+            //    console.log(tap.level);
+            // console.log(mylevel);
+            // mylevel.forEach((level)=>{
+            level.style.height = "90";
+            level.style.y = "866";
+
+            // });
+
+            // kegok.forEach((kegokPath)=>{
             kegokPath.style.fill = "#D1D1D3";
             kegokPath2.style.fill = "#D1D1D3";
-        // });
-    
-        // replace.forEach((replaceSoon)=>{
+            // });
+
+            // replace.forEach((replaceSoon)=>{
             // console.log(replaceSoon);
             replacePath.style.fill = "red";
             replacePath2.style.fill = "red";
-        // });
-//});
-    }
-if (tap.inUse == true ){
-    
-    let onetap = inuse[i];
-    console.log(onetap);
-        // inuse.forEach((onetap)=>{
-            onetap.style.fill= "#78A6BA";
+            // });
+            //});
+        }
+        if (tap.inUse == true) {
+
+            let onetap = inuse[i];
+            console.log(onetap);
+            // inuse.forEach((onetap)=>{
+            onetap.style.fill = "#78A6BA";
             // TweenMax.to("onetap feGaussianBlur",1,{attr:{stdDeviation:0},repeat:-1,yoyo:true});
-            
-          
-           
-        // });
 
 
-    }
-    else{
-        let onetap = inuse[i];
-        onetap.style.fill= "pink";
+
+            // });
+
+
+        } else {
+            let onetap = inuse[i];
+            onetap.style.fill = "pink";
+        };
+
+
+
     };
-
-
-
-};
 };
 
 

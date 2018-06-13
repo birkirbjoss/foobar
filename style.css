@@ -60,6 +60,16 @@ span {
     width: 100%;
 }
 
+#info_right {
+    font-size: 12px;
+    grid-column: -2/-1;
+    text-align: left;
+    padding-left: 15px;
+    border: 1px solid white;
+}
+
+
+
 #queue {
     fill: #daa520;
     font-size: 24px;
@@ -70,7 +80,6 @@ span {
 }
 
 
-
 .orderButton, a {
     background-color: rgb(44, 68, 30);
     color: white;
@@ -79,12 +88,7 @@ span {
     text-decoration: none;
 }
 
-#info_right {
-    font-size: 12px;
-    grid-column: -2/-1;
-    text-align: left;
-    padding-left: 15px;
-}
+
 
 .hideBartender {
     opacity: .5;
@@ -158,3 +162,8 @@ span {
 color: #daa520;
 font-size: 18px;
 } */
+
+#kegs:hover{
+
+    cursor: pointer;
+}
