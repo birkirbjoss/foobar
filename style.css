@@ -1,10 +1,8 @@
-*{
-    background-color:#42652E;
-    
-   
+* {
+    background-color: #42652E;
 }
 
-body{
+body {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     font-family: century gothic;
@@ -12,153 +10,149 @@ body{
     font-size: 10px;
 }
 
-#foo{
-grid-column: 2/-2;
-grid-row: 1;
-width: 100%;
-margin:auto;
-
+#foo {
+    grid-column: 2/-2;
+    grid-row: 1;
+    width: 100%;
+    margin: auto;
 }
 
-#mylevel{
-transition: height 2s ease;
+#mylevel {
+    transition: height 2s ease;
 }
 
 .hide {
-display: none;
+    display: none;
 }
 
 #modal {
     grid-column: 1/2;
-padding-top: 10px;
-width: 15%;
-overflow: scroll;
-color: white;
-text-align:left;
-position: fixed;
-left: 5;
-height: 650px;
-background-color:rgba(66, 101, 46, .7);
+    padding-top: 10px;
+    width: 15%;
+    overflow: scroll;
+    color: white;
+    text-align: left;
+    position: fixed;
+    left: 5;
+    height: 650px;
+    background-color: rgba(66, 101, 46, .7);
 }
 
 .modal-content {
-    grid-column: 1/2;
-    
-padding: 20px;
-font-size:14px;
-background-color: #42652E;
-margin: auto;
-border: 1px solid white;
-
+    padding: 20px;
+    font-size: 12px;
+    background-color: #42652E;
+    margin: auto;
+    border: 1px solid white;
 }
 
 .modal-close {
-cursor: pointer;
+    cursor: pointer;
 }
-span{
+
+span {
     position: absolute;
     right: 10px;
     top: 15px;
 }
 
-.image{
-    width:20%;
+.label {
+    width: 100%;
 }
 
-
-#queue{
+#queue {
     fill: #daa520;
     font-size: 24px;
 }
 
-.st5{
+.st5 {
     fill: #daa520;
-
 }
 
-.orderButton,a {
-   background-color: black; 
+
+
+.orderButton, a {
+    background-color: rgb(44, 68, 30);
     color: white;
+    width: 150px;
+    height: 30px;
+    text-decoration: none;
 }
 
-
-#info_right{
+#info_right {
     font-size: 12px;
     grid-column: -2/-1;
     text-align: left;
     padding-left: 15px;
-   
 }
-
 
 .hideBartender {
     opacity: .5;
-    }
+}
 
+#graph {
+    position: absolute;
+}
 
-   #graph{
-       position: absolute;
-   }
-      
-      .graph .labels.x-labels {
-        text-anchor: middle;
-        fill: white;
-      }
-      
-      .graph .labels.y-labels {
-        text-anchor: end;
-        fill: white;
-      }
-      
-      .graph {
-        height: 500px;
-        width: 800px;
-      }
-      
-      .graph .grid {
-        stroke: rgb(240, 224, 11);
-        stroke-dasharray: 0;
-        stroke-width: 4;
-      }
-      
-      .labels {
-        font-size: 13px;
-      }
-      
-      .label-title {
-        
-        font-weight: bold;
-        text-transform: uppercase;
-        font-size: 14px;
-        fill: white;
-      }
+.graph .labels.x-labels {
+    text-anchor: middle;
+    fill: white;
+}
 
-      .label-title-que {
-          writing-mode: vertical-lr;
-        text-orientation: upright;
-        font-weight: bold;
-        text-transform: uppercase;
-        font-size: 14px;
-        fill: white;
-      }
-      
-      .data {
-        fill: red;
-        stroke-width: 1;
-      } 
-    
-    .graph{
-        overflow: hidden;
-    }
+.graph .labels.y-labels {
+    text-anchor: end;
+    fill: white;
+}
 
-    .draw{
-        overflow: hidden;
-        position: relative;
-        }
+.graph {
+    height: 500px;
+    width: 800px;
+}
 
-   
+.graph .grid {
+    stroke: rgb(240, 224, 11);
+    stroke-dasharray: 0;
+    stroke-width: 4;
+}
 
+.labels {
+    font-size: 13px;
+}
 
+.label-title {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    fill: white;
+}
+
+.label-title-que {
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    fill: white;
+}
+
+.data {
+    fill: red;
+    stroke-width: 1;
+}
+
+.graph {
+    overflow: hidden;
+}
+
+.draw {
+    overflow: hidden;
+    position: relative;
+}
+
+#textbox {
+    fill: white;
+    font-size: 16px;
+}
 
 /* .myqueue{
 color: #daa520;

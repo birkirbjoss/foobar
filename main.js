@@ -21,10 +21,11 @@ setInterval(() => {
     myObject = JSON.parse(json);
     showQueue();
     drawGraph();
+    showLevels(myObject);
     baristas();
     whoIsWorking(myObject.bartenders);
 
-}, 3000);
+}, 1000);
 
 
 
@@ -40,76 +41,7 @@ setInterval(() => {
 
 
 
-let mylevel = document.querySelector("#mylevel");
-let kegok = document.querySelector("#pouring");
-let replace = document.querySelector("#replace");
-let inuse = document.querySelector("#tube");
 
-
-// THE BEER LEVEL IN THE KEG DECREASES FOLLOWING THE IF STATEMENTS.
-
-let alltaps = ["#tap1", "#tap2", "#tap3", "#tap4", "#tap5", "#tap6", "#tap7"];
-let tapObjs = document.querySelectorAll('#taps g[id*="tap"]')
-// console.log(tapObjs);
-let thisTap = myObject.beertypes.level;
-// console.log(thisTap)//  WHEN THE BEER LEVEL IS X, THE GREEN LINE INDICATES ´KEG IS OK' AND THE RED LINE INDICATES 'REPLACE SOON'
-function showLevels() {
-
-    tapObjs.forEach(function (item, index, array) {
-        // console.log(index,array);
-        let thisStore = myObject.beertypes.find(function (element) {
-            return element.level === myObject.taps[index].level;
-
-        });
-
-    })
-
-
-    if (myObject.taps.level == 2500) {
-        mylevel.style.height = "107.9";
-        mylevel.style.y = "866";
-        kegok.style.fill = "green";
-        replace.style.fill = "red";
-        //  console.log("color");
-    };
-
-    if (myObject.taps.level > 2500 && myObject.taps[1].level <= 2000) {
-        mylevel.style.height = "86.4";
-        mylevel.style.y = "866";
-    };
-
-    if (myObject.taps.level > 2000 && myObject.taps[1].level <= 1250) {
-        mylevel.style.height = "44.4";
-        mylevel.style.y = "866";
-    };
-
-    if (myObject.taps.level > 1250 && myObject.taps[1].level <= 500) {
-        mylevel.style.height = "24.4";
-        mylevel.style.y = "866";
-    };
-
-    if (myObject.taps.level > 500 && myObject.taps[1].level <= 100) {
-        mylevel.style.height = "14.4";
-        mylevel.style.y = "866";
-    };
-
-    if (myObject.taps.level > 100 && myObject.taps[1].level <= 1) {
-        mylevel.style.height = "3";
-        mylevel.style.y = "866";
-    };
-
-    if (myObject.taps.level == 0) {
-        mylevel.style.height = "0";
-        mylevel.style.y = "866";
-    };
-
-    if (myObject.taps.inUse == false) {
-        inuse.style.fill = "green";
-        //TRYING TO MAKE THE BEER LEVEL GLOW WHEN THE TAP IS IN USE
-        //TweenMax.to(mylevel,.3,{attr:{stdDeviation:4},repeat:-1,yoyo:true});
-        //TweenLite.to(mylevel, 2.5, { ease: Elastic.easeOut.config(1, 0.3), y: -500 });
-    };
-};
 
 let names = ["#kegname1", "#kegname2", "#kegname3", "#kegname4", "#kegname5", "#kegname6", "#kegname7"];
 //THE NAMES OF THE BEER SHOW UNDER THE KEGS AND THEY CHANGE WHEN THE JSON CHANGES
@@ -186,10 +118,9 @@ function showModalContent() {
 
             //showModalContent(theKeg);
             modal.classList.remove("hide")
-
-            modal.querySelector(".name").textContent = thisBeer.name;
-            modal.querySelector(".category").textContent = thisBeer.category;
-            modal.querySelector(".img").src = thisBeer.label;
+            modal.querySelector(".name").textContent ="Name: " + thisBeer.name;
+            modal.querySelector(".category").textContent ="Category: " + thisBeer.category;
+            modal.querySelector(".label").src = thisBeer.label;
             modal.querySelector(".appearance").textContent = "Appearance:  " + thisBeer.description.appearance;
             modal.querySelector(".aroma").textContent = "Aroma: " + thisBeer.description.aroma;
             modal.querySelector(".flavor").textContent = "Flavor: " + thisBeer.description.flavor;
@@ -214,10 +145,9 @@ function showModalContent() {
 
 function baristas() {
 
-    document.querySelector(".status").textContent = "Peter is: " + myObject.bartenders[0].status;
-    document.querySelector(".detail").textContent = " He is serving " + myObject.serving[0]
-    document.querySelector(".status1").textContent = "Jonas is: " + myObject.bartenders[1].status;
-    document.querySelector(".status2").textContent = "Martin is: " + myObject.bartenders[2].status;
+    document.querySelector(".textbox").textContent = "Peter is: " + myObject.bartenders[0].status;
+    document.querySelector(".textbox1").textContent = "Jonas is: " + myObject.bartenders[1].status;
+    document.querySelector(".textbox2").textContent = "Martin is: " + myObject.bartenders[2].status;
 
 
 }
@@ -280,11 +210,105 @@ function showStorage() {
 
 }
 
+// THE BEER LEVEL IN THE KEG DECREASES FOLLOWING THE IF STATEMENTS.
+//  WHEN THE BEER LEVEL IS X, THE GREEN LINE INDICATES ´KEG IS OK' AND THE RED LINE INDICATES 'REPLACE SOON'
+let mylevel = document.querySelectorAll(".mylevel rect");
+let kegok2 = document.querySelectorAll(".kegok .st19");
+let kegok = document.querySelectorAll(".kegok .st20");
+let replace = document.querySelectorAll(".kegreplace .st200");
+let replace2 = document.querySelectorAll(".kegreplace .st2001");
+let inuse = document.querySelectorAll(".st62");
+
+//kegok.concat(kegok2);
+//console.log(kegok);
+
+console.log(kegok);
+
+function showLevels(tapObj){
+    // console.log(tapObj);
+    let alltaps = tapObj.taps; 
+    for (let i=0;i<alltaps.length;i++)  {
+
+        let tap=alltaps[i];
+    // alltaps.forEach((tap, i) =>{
+    console.log(tap);
+//let alltaps = document.querySelector("[data-tabid]" + i);
+let level=mylevel[i];
+let kegokPath=kegok[i];
+let kegokPath2=kegok2[i];
+let replacePath=replace[i];
+let replacePath2=replace2[i];
+
+if (tap.level == 2500 ){
+//    console.log(tap.level);
+    // console.log(mylevel);
+    
+    // mylevel.forEach((level)=>{
+        level.style.height= "0";
+        level.style.y = "866";
+       
+    // });
+
+    // kegok.forEach((kegokPath)=>{
+        kegokPath.style.fill = "green";
+        kegokPath2.style.fill = "green";
+    // });
+
+    
+
+};
+
+if (tap.level <= 2450 ){
+    //    console.log(tap.level);
+        // console.log(mylevel);
+        // mylevel.forEach((level)=>{
+            level.style.height= "90";
+            level.style.y = "866";
+           
+        // });
+    
+        // kegok.forEach((kegokPath)=>{
+            kegokPath.style.fill = "#D1D1D3";
+            kegokPath2.style.fill = "#D1D1D3";
+        // });
+    
+        // replace.forEach((replaceSoon)=>{
+            // console.log(replaceSoon);
+            replacePath.style.fill = "red";
+            replacePath2.style.fill = "red";
+        // });
+//});
+    }
+if (tap.inUse == true ){
+    
+    let onetap = inuse[i];
+    console.log(onetap);
+        // inuse.forEach((onetap)=>{
+            onetap.style.fill= "#78A6BA";
+            // TweenMax.to("onetap feGaussianBlur",1,{attr:{stdDeviation:0},repeat:-1,yoyo:true});
+            
+          
+           
+        // });
+
+
+    }
+    else{
+        let onetap = inuse[i];
+        onetap.style.fill= "pink";
+    };
+
+
+
+};
+};
+
+
+
 
 //whoIsWorking(myObject.bartenders);
 showStorage();
 baristas();
-showLevels();
 hideModal();
 showQueue();
 showNames();
