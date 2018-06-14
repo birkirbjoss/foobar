@@ -24,6 +24,7 @@ setInterval(() => {
     showLevels(myObject);
     baristas();
     whoIsWorking(myObject.bartenders);
+    counting(myObject);
 
 }, 1000);
 
@@ -309,10 +310,31 @@ tl
         .fromTo(onetap, 2.3, {autoAlpha: 1}, {autoAlpha: 1, immediateRender:false})
     };
 
+    
+
 
 
 };
 };
+
+let totalBeers = 0;
+    let lastCustomer = 0;
+    function counting(myObj){
+        // console.log(myObj)
+        document.querySelector("#countbeer").textContent = "Total beers served: " + totalBeers;
+        myObj.serving.forEach(servedCustomer=>{
+            if(servedCustomer.id>lastCustomer){
+            
+            // servedCustomer.id
+            totalBeers += servedCustomer.order.length;
+             // remember this id was$ the last one counted
+            lastCustomer = servedCustomer.id;
+
+           
+        }
+        })
+        // console.log(totalBeers);
+    }
 
 
 
