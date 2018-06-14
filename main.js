@@ -209,9 +209,7 @@ function showStorage() {
         
     })
     
-}
-
-
+};
 
 // THE BEER LEVEL IN THE KEG DECREASES FOLLOWING THE IF STATEMENTS.
 //  WHEN THE BEER LEVEL IS X, THE GREEN LINE INDICATES ´KEG IS OK' AND THE RED LINE INDICATES 'REPLACE SOON'
@@ -310,12 +308,12 @@ tl
         .fromTo(onetap, 2.3, {autoAlpha: 1}, {autoAlpha: 1, immediateRender:false})
     };
 
-    
-
 
 
 };
 };
+
+
 
 let totalBeers = 0;
     let lastCustomer = 0;
