@@ -115,6 +115,7 @@ span {
 }
 .orderButton{
     align-content: center;
+    margin-left: 1em;
 }
 .orderButton, a {
     background-color: rgb(44, 68, 30);
@@ -275,6 +276,7 @@ font-size: 18px;
 
         .orderButton{
             align-content: center;
+            margin-left: 1em;
         }
         .orderButton, a {
             background-color: rgb(44, 68, 30);
