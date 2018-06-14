@@ -1,13 +1,11 @@
-* {
-    background-color: #42652E;
-}
 
 body {
+    background-color: #42652E;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     font-family: century gothic;
     color: white;
-    font-size: 10px;
+    font-size: 12px;
 }
 
 #foo {
@@ -15,6 +13,7 @@ body {
     grid-row: 1;
     width: 100%;
     margin: auto;
+    
 }
 
 #mylevel {
@@ -27,23 +26,25 @@ body {
 
 #modal {
     grid-column: 1/2;
-    padding-top: 10px;
-    width: 15%;
+    grid-row: 1;
+    border: 1px solid white;
+    width: 16%;
     overflow: scroll;
     color: white;
     text-align: left;
     position: fixed;
     left: 5;
-    height: 650px;
+    height: 670px;
     background-color: rgba(66, 101, 46, .7);
 }
 
 .modal-content {
+    border: 1px solid white;
+    grid-column: 1/2;
     padding: 20px;
-    font-size: 12px;
     background-color: #42652E;
     margin: auto;
-    border: 1px solid white;
+    
 }
 
 .modal-close {
@@ -60,12 +61,31 @@ span {
     width: 100%;
 }
 
+
+
+
+
 #info_right {
-    font-size: 12px;
     grid-column: -2/-1;
+    grid-row: 1;
+    overflow: scroll;
     text-align: left;
-    padding-left: 15px;
+   margin-left: 10px;
     border: 1px solid white;
+}
+
+#info_right, h1, h3{
+   padding-left: 10px;
+   
+}
+.orderButton{
+    align-content: center;
+}
+.orderButton, a {
+    background-color: rgb(44, 68, 30);
+    color: white;
+    width: 150px;
+    text-decoration: none;
 }
 
 
@@ -75,17 +95,13 @@ span {
     font-size: 24px;
 }
 
-.st5 {
+
+
+
+.st4,st5,st6{
+   
     fill: #daa520;
-}
-
-
-.orderButton, a {
-    background-color: rgb(44, 68, 30);
-    color: white;
-    width: 150px;
-    height: 30px;
-    text-decoration: none;
+  
 }
 
 
@@ -166,4 +182,40 @@ font-size: 18px;
 #kegs:hover{
 
     cursor: pointer;
+}
+
+/* ADD TO KEG ANIMATION */
+.mylevel rect{
+    transition: all 2s ease;
+}
+.kegok .st19{
+    transition: all 2s ease;
+}
+kegok .st20{
+    transition: all 2s ease;
+}
+.kegreplace .st200{
+    transition: all 2s ease;
+}
+.kegreplace .st2001{
+    transition: all 2s ease;
+}
+.st62{
+    transition: all 2s ease;
+}
+
+
+
+@media only screen and (min-width: 1080px) {
+    
+        #modal{
+                height: 1080px;
+        }
+
+        #info_right, h1, h3{
+            padding-left: 10px;
+         
+            
+         } 
+
 }
