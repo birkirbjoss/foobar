@@ -170,7 +170,7 @@ if (tap.level <= 1000 && tap.level >500){
         replacePath2.style.fill = "red";
 }
 
-// When a tap is being used the tube  from the keg that leads to the tab changes color and blinks
+// When a tap is being used the tube from the keg that leads to the tab changes color and blinks
 // when it is not being used the color is the same
 
     let onetap = inuse[i];
