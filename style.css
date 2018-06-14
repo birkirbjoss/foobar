@@ -8,6 +8,8 @@ body {
     font-size: 12px;
 }
 
+            /* The SVG */
+
 #foo {
     grid-column: 2/-2;
     grid-row: 1;
@@ -16,9 +18,42 @@ body {
     
 }
 
+/* The kegs */
+
 #mylevel {
     transition: height 2s ease;
 }
+
+.st4{
+    font-size: 10px;
+     fill: #daa520;
+   
+ }
+
+ #kegs:hover{
+
+    cursor: pointer;
+}
+
+/* KEG ANIMATION */
+.mylevel rect{
+    transition: all 2s ease;
+}
+.kegok .st19{
+    transition: all 2s ease;
+}
+kegok .st20{
+    transition: all 2s ease;
+}
+.kegreplace .st200{
+    transition: all 2s ease;
+}
+.kegreplace .st2001{
+    transition: all 2s ease;
+}
+
+
+    /* The Modal */
 
 .hide {
     display: none;
@@ -62,7 +97,7 @@ span {
 }
 
 
-
+/* The div on the right */
 
 
 #info_right {
@@ -89,10 +124,10 @@ span {
 }
 
 #countbeer{
-    font-size: 14px;
+    font-size: 18px;
 }
 
-
+/* The queue */
 
 #queue {
     fill: #daa520;
@@ -101,18 +136,15 @@ span {
 
 
 
-
-.st4,st5,st6{
-   
-    fill: #daa520;
-  
-}
-
-
+/* The Bartenders */
 
 .hideBartender {
     opacity: .5;
 }
+
+
+
+/* The Graph */
 
 #graph {
     position: absolute;
@@ -183,36 +215,13 @@ color: #daa520;
 font-size: 18px;
 } */
 
-#kegs:hover{
-
-    cursor: pointer;
-}
-
-/* ADD TO KEG ANIMATION */
-.mylevel rect{
-    transition: all 2s ease;
-}
-.kegok .st19{
-    transition: all 2s ease;
-}
-kegok .st20{
-    transition: all 2s ease;
-}
-.kegreplace .st200{
-    transition: all 2s ease;
-}
-.kegreplace .st2001{
-    transition: all 2s ease;
-}
 
 
 
 
 @media only screen and (min-width: 1080px) {
     
-        #modal{
-                height: 1080px;
-        }
+        
 
         #info_right, h1, h3{
             padding-left: 10px;

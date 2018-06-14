@@ -1,7 +1,8 @@
 "use strict"
+
 let myObject;
 
-//getting data
+//Getting data
 let json = FooBar.getData();
 
 //parsing the json file into an object and returning string
@@ -9,13 +10,8 @@ myObject = JSON.parse(json);
 let pplInQueue = 0;
 
 
+//Data being fetched at an interval
 
-function showQueue() {
-    //console.log(myObject.queue);
-    document.querySelector("#queue").textContent = myObject.queue.length + "  waiting";
-
-};
-//THE INTERVAL THAT THE DATA IS FETCHED GOES HERE
 setInterval(() => {
     json = FooBar.getData();
     myObject = JSON.parse(json);
@@ -31,24 +27,24 @@ setInterval(() => {
 
 
 
+// The data for Queue is shown
+
+function showQueue() {
+    //console.log(myObject.queue);
+    document.querySelector("#queue").textContent = myObject.queue.length + "  waiting";
+};
 
 
 
+// The Kegs - naming and animation
 
 
-
-
-
-
-
-
-
+// The name of a beer shown under each keg and the change randomly according to the JSON
 
 let names = ["#kegname1", "#kegname2", "#kegname3", "#kegname4", "#kegname5", "#kegname6", "#kegname7"];
-//THE NAMES OF THE BEER SHOW UNDER THE KEGS AND THEY CHANGE WHEN THE JSON CHANGES
+
 
 function showNames() {
-
     // console.log(myObject.beertypes);
     document.querySelector(".kegname1 text").textContent = myObject.taps[0].beer;
     document.querySelector(".kegname2 text").textContent = myObject.taps[1].beer;
@@ -57,46 +53,17 @@ function showNames() {
     document.querySelector(".kegname5 text").textContent = myObject.taps[4].beer;
     document.querySelector(".kegname6 text").textContent = myObject.taps[5].beer;
     document.querySelector(".kegname7 text").textContent = myObject.taps[6].beer;
-
 }
 
-//Showing which of the bartenders is working
-function whoIsWorking(bartenders) {
-
-    // console.log(bartenders);
-
-    // loop through all the bartenders (forEach)
-    // create a variable that is #bartenderName
-    // if this.bartenders.status = ready 
-    // document.qs.variable.classList.add (hide)
-    // else remove(hide)
-    //let barTenders = ["#Martin", "#Jonas", "#Peter"];
-
-    bartenders.forEach((bartender) => {
-        // console.log(barTenders)
-        // console.log(bartender);
-        if (bartender.status == "READY") {
-            console.log(bartender.status)
-            document.querySelector(`#${bartender.name}`).classList.add("hideBartender")
-            // console.log("ready");
-        } else {
-            // console.log(bartender.status);
-            document.querySelector(`#${bartender.name}`).classList.remove("hideBartender")
-        }
-    })
-
-}
-
-
-
-//ON CLICK, THE KEGS SHOW MODAL BOXES
+//When a keg is clicked a modal box is shown on the right of the screen
 let kegsButton = document.querySelector("#keg1");
-// MODAL BOXES
+
+// function to hide the modal when the page is loaded
 function hideModal() {
     modal.classList.add("hide");
 }
 
-
+// The modal box content
 function showModalContent() {
 
     let modal = document.querySelector("#modal");
@@ -104,8 +71,8 @@ function showModalContent() {
     let kegObjs = document.querySelectorAll('#kegs g[id*="keg"]')
     // console.log(kegObjs)
 
-
-    kegObjs.forEach(function (theKeg, index) {
+        //The click function for each keg
+        kegObjs.forEach(function (theKeg, index) {
         theKeg.addEventListener('click', function () {
             // console.log(myObject.taps[index]);
             //find beer in beertypes
@@ -132,87 +99,13 @@ function showModalContent() {
             // modal.querySelector(".more").textContent = "We have " + myObject.storage + " in storage";
             modal.addEventListener('click', hideModal);
         });
-
-
-
-
-
-
     })
 };
 
+// The levels of beer in each which changes according to the JSON
+// When the keg is full it shows a green line. When it is about half empty a orange line is shown. 
+// When it getting close to empty a red line is shown
 
-
-
-function baristas() {
-
-    document.querySelector(".textbox").textContent = "Peter is: " + myObject.bartenders[0].status;
-    document.querySelector(".textbox1").textContent = "Jonas is: " + myObject.bartenders[1].status;
-    document.querySelector(".textbox2").textContent = "Martin is: " + myObject.bartenders[2].status;
-
-
-}
-
-const queueArray = [];
-
-function drawGraph() {
-
-    //another way
-    // console.log(`ppl in queue:${myObject.queue.length}`);
-
-    queueArray.push(myObject.queue.length);
-    if (queueArray.length > 94) { // Length of graph - probably more than 10!
-        queueArray.shift();
-    }
-
-    // build pointsArr from queueArray!
-    const pointsArr = [];
-    const top = 25;
-    const bot = 285;
-
-    let x = 1;
-    queueArray.forEach(queueLength => {
-        const y = (1-(queueLength/25)) * (bot-top) + top;
-        pointsArr.push([x, y]);
-        
-        x += 6;
-    });
-
-    document.querySelector('#graph polyline').setAttribute('points', pointsArr.join(" "));
-
-    let myDraw = document.querySelector('#graph polyline');
-}
-
-let storage = myObject.storage;
-
-function showStorage() {
-
-    storage.forEach(function (item, index, array) {
-        console.log(index,item);
-        let thisStore = myObject.storage.find(function (element) {
-            return element.amount === myObject.storage[index].amount;
-            
-
-        });
-        document.querySelector(".storage").textContent ="We have " + myObject.storage[0].amount + " kegs left " + "of " +  storage[0].name;
-        document.querySelector(".storage1").textContent ="We have " + myObject.storage[1].amount + " kegs left " + "of " +  storage[1].name;
-        document.querySelector(".storage2").textContent ="We have " + myObject.storage[2].amount + " kegs left " + "of " +  storage[2].name;
-        document.querySelector(".storage3").textContent ="We have " + myObject.storage[3].amount + " kegs left " + "of " +  storage[3].name;
-        document.querySelector(".storage4").textContent ="We have " + myObject.storage[4].amount + " kegs left " + "of " +  storage[4].name;
-        document.querySelector(".storage5").textContent ="We have " + myObject.storage[5].amount + " kegs left " + "of " +  storage[5].name;
-        document.querySelector(".storage6").textContent ="We have " + myObject.storage[6].amount + " kegs left " + "of " +  storage[6].name;
-        document.querySelector(".storage7").textContent ="We have " + myObject.storage[7].amount + " kegs left " + "of " +  storage[7].name;
-        document.querySelector(".storage8").textContent ="We have " + myObject.storage[8].amount + " kegs left " + "of " +  storage[8].name;
-        document.querySelector(".storage9").textContent ="We have " + myObject.storage[9].amount + " kegs left " + "of " +  storage[9].name;
-        
-
-        
-    })
-    
-};
-
-// THE BEER LEVEL IN THE KEG DECREASES FOLLOWING THE IF STATEMENTS.
-//  WHEN THE BEER LEVEL IS X, THE GREEN LINE INDICATES ´KEG IS OK' AND THE RED LINE INDICATES 'REPLACE SOON'
 let mylevel = document.querySelectorAll(".mylevel rect");
 let kegok2 = document.querySelectorAll(".kegok .st19");
 let kegok = document.querySelectorAll(".kegok .st20");
@@ -220,36 +113,25 @@ let replace = document.querySelectorAll(".kegreplace .st200");
 let replace2 = document.querySelectorAll(".kegreplace .st2001");
 let inuse = document.querySelectorAll(".st62");
 
-//kegok.concat(kegok2);
-//console.log(kegok);
-
-console.log(kegok);
 
 function showLevels(tapObj){
     // console.log(tapObj);
     let alltaps = tapObj.taps; 
     for (let i=0;i<alltaps.length;i++)  {
 
-        let tap=alltaps[i];
-    // alltaps.forEach((tap, i) =>{
-    //console.log(tap);
-//let alltaps = document.querySelector("[data-tabid]" + i);
-let level=mylevel[i];
-let kegokPath=kegok[i];
-let kegokPath2=kegok2[i];
-let replacePath=replace[i];
-let replacePath2=replace2[i];
+    let tap=alltaps[i];
+    let level=mylevel[i];
+    let kegokPath=kegok[i];
+    let kegokPath2=kegok2[i];
+    let replacePath=replace[i];
+    let replacePath2=replace2[i];
 
 if (tap.level == 2500 ){
-//    console.log(tap.level);
-    // console.log(mylevel);
-    
         level.style.height= "0";
         level.style.y = "866";
 
         kegokPath.style.fill = "green";
         kegokPath2.style.fill = "green";     
-
 };
 
 if (tap.level <= 2450 && tap.level >1000 ){
@@ -262,7 +144,6 @@ if (tap.level <= 2450 && tap.level >1000 ){
 
             replacePath.style.fill = "orange";
             replacePath2.style.fill = "orange";
-
 }
 
 if (tap.level <= 1000 && tap.level >500){
@@ -277,7 +158,6 @@ if (tap.level <= 1000 && tap.level >500){
             replacePath2.style.fill = "red";
     }
 
-
     if (tap.level <= 500){
 
         level.style.height= "90";
@@ -290,15 +170,15 @@ if (tap.level <= 1000 && tap.level >500){
         replacePath2.style.fill = "red";
 }
 
+// When a tap is being used the tube  from the keg that leads to the tab changes color and blinks
+// when it is not being used the color is the same
+
     let onetap = inuse[i];
     var tl = new TimelineMax({repeat: -1});
 if (tap.inUse == true ){
-    console.log(tap.inUse);
-
             onetap.style.fill= "#daa520";
 tl
         .fromTo(onetap, 3, {autoAlpha: 1}, {autoAlpha: 0})
-
     }
     else{
         onetap.style.fill= "#dbdbdb";
@@ -307,36 +187,98 @@ tl
         tl 
         .fromTo(onetap, 2.3, {autoAlpha: 1}, {autoAlpha: 1, immediateRender:false})
     };
-
-
-
 };
 };
 
+//Text showing which of the bartenders is working or is ready
+function whoIsWorking(bartenders) {
+    bartenders.forEach((bartender) => {
+        
+        if (bartender.status == "READY") {
+            console.log(bartender.status)
+            document.querySelector(`#${bartender.name}`).classList.add("hideBartender")
+            
+        } else { 
+            document.querySelector(`#${bartender.name}`).classList.remove("hideBartender")
+        }
+    })
+}
 
+//Text that shows if bartenders are working or ready 
+function baristas() {
+    document.querySelector(".textbox").textContent = "Peter is: " + myObject.bartenders[0].status;
+    document.querySelector(".textbox1").textContent = "Jonas is: " + myObject.bartenders[1].status;
+    document.querySelector(".textbox2").textContent = "Martin is: " + myObject.bartenders[2].status;
+}
+
+
+// The graph showing the number of people in queue vs time in seconds
+
+const queueArray = [];
+
+function drawGraph() {
+
+    queueArray.push(myObject.queue.length);
+    if (queueArray.length > 94) { 
+        queueArray.shift();
+    }
+
+    // The top of the graph and bottom defined in pixels
+        const pointsArr = [];
+        const top = 25;
+        const bot = 285;
+
+            let x = 1;
+                queueArray.forEach(queueLength => {
+            const y = (1-(queueLength/25)) * (bot-top) + top;
+                pointsArr.push([x, y]);
+                 x += 6;
+    });
+    document.querySelector('#graph polyline').setAttribute('points', pointsArr.join(" "));
+    let myDraw = document.querySelector('#graph polyline');
+}
+
+// The Storage being shown in the div on the right of the screen
+
+let storage = myObject.storage;
+
+function showStorage() {
+
+    storage.forEach(function (item, index, array) {
+        console.log(index,item);
+        let thisStore = myObject.storage.find(function (element) {
+            return element.amount === myObject.storage[index].amount;
+            
+        });
+        document.querySelector(".storage").textContent ="We have " + myObject.storage[0].amount + " kegs left " + "of " +  storage[0].name;
+        document.querySelector(".storage1").textContent ="We have " + myObject.storage[1].amount + " kegs left " + "of " +  storage[1].name;
+        document.querySelector(".storage2").textContent ="We have " + myObject.storage[2].amount + " kegs left " + "of " +  storage[2].name;
+        document.querySelector(".storage3").textContent ="We have " + myObject.storage[3].amount + " kegs left " + "of " +  storage[3].name;
+        document.querySelector(".storage4").textContent ="We have " + myObject.storage[4].amount + " kegs left " + "of " +  storage[4].name;
+        document.querySelector(".storage5").textContent ="We have " + myObject.storage[5].amount + " kegs left " + "of " +  storage[5].name;
+        document.querySelector(".storage6").textContent ="We have " + myObject.storage[6].amount + " kegs left " + "of " +  storage[6].name;
+        document.querySelector(".storage7").textContent ="We have " + myObject.storage[7].amount + " kegs left " + "of " +  storage[7].name;
+        document.querySelector(".storage8").textContent ="We have " + myObject.storage[8].amount + " kegs left " + "of " +  storage[8].name;
+        document.querySelector(".storage9").textContent ="We have " + myObject.storage[9].amount + " kegs left " + "of " +  storage[9].name;       
+    })   
+};
+
+// The total of beers served
 
 let totalBeers = 0;
     let lastCustomer = 0;
     function counting(myObj){
-        // console.log(myObj)
-        document.querySelector("#countbeer").textContent = "Total beers served: " + totalBeers;
+        document.querySelector("#countbeer").textContent = "Total of beers served: " + totalBeers;
         myObj.serving.forEach(servedCustomer=>{
             if(servedCustomer.id>lastCustomer){
-            
-            // servedCustomer.id
             totalBeers += servedCustomer.order.length;
-             // remember this id was$ the last one counted
             lastCustomer = servedCustomer.id;
-
-           
         }
-        })
-        // console.log(totalBeers);
+        }) 
     }
 
+// Calling the functions
 
-
-//whoIsWorking(myObject.bartenders);
 showStorage();
 baristas();
 hideModal();
